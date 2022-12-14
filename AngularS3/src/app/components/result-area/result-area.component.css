@@ -1,0 +1,46 @@
+.form-select {
+    width: 30%;
+}
+.container-card {
+    height: 60vh;
+    width: 32%;
+    margin: 1% 0; 
+    max-width: 350px;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body * {
+    margin: 0!important;
+}
+
+.area {
+    margin: 2% 12.5%;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+h2 {
+    margin: 2% 12.5%;
+    width: 75%;
+}
+
+.card-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 0;
+}
