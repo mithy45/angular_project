@@ -35,3 +35,4 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+AngularS3/.angular/cache
