@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar-detail',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarDetailComponent implements OnInit {
 
-  constructor() { }
+  links = {
+    "/details/artist" : "Artist",
+    "/details/concert" : "Concert",
+    "/details/album" : "Album",
+    "/details/musique" : "Music",
+  };
+
+  currentRoute = "";
+  
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.currentRoute = this.router.url
   }
 
 }
