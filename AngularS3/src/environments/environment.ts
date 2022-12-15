@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseURL_LastFM_API : "http://ws.audioscrobbler.com/2.0/",
+  apiKey_LastFM_API : "cd1ec2b085f4bce7f9fb4e296095ba02",
+  responseFormat: "json"
 };
 
 /*
