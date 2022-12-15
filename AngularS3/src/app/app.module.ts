@@ -13,6 +13,8 @@ import { DetailConcertComponent } from './pages/detail-concert/detail-concert.co
 import { DetailArtistComponent } from './pages/detail-artist/detail-artist.component';
 import { DetailAlbumComponent } from './pages/detail-album/detail-album.component';
 import { DetailMusiqueComponent } from './pages/detail-musique/detail-musique.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { DetailMusiqueComponent } from './pages/detail-musique/detail-musique.co
     DetailArtistComponent,
     DetailAlbumComponent,
     DetailMusiqueComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
