@@ -34,6 +34,18 @@ export class LastFmApiService {
         return this.httpClient.get(this.endPointURL, {params: params});
     }
 
+    getListAlbumBySearch(album: string, limit: number = 12, page: number = 1) : Observable<any> {
+        let params = new HttpParams()
+                    .set("method", "album.search")
+                    .set("limit", limit)
+                    .set("page", page)
+                    .set("album", album)
+                    .set("api_key", environment.apiKey_LastFM_API)
+                    .set("format", environment.responseFormat);
+
+        return this.httpClient.get(this.endPointURL, {params: params});
+    }
+
     getAllAlbumsByArtist(artist: string) : Observable<any> {
         let params = new HttpParams()
                     .set("method", "artist.gettopalbums")
