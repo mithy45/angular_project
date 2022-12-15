@@ -1,17 +1,32 @@
 <app-header></app-header>
 <div class="row d-flex justify-content-center">
-    <div class="col-md-9"> <div class="card p-4 mt-3">
-        <h3 class="heading mt-5 text-center">You will find information on an artist, a concert or a concert venue through the search</h3>
-        <div class="d-flex justify-content-center px-5">
-            <div class="search"> <input type="text" class="search-input" placeholder="Search..." name=""> 
-                <a href="#" class="search-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </a> 
-            </div>
+  <div class="col-md-9">
+    <form [formGroup]="checkoutForm" class="card p-4 mt-3" (ngSubmit)="onSubmit()"> 
+      <h3 class="heading mt-5 text-center">You will find information on an artist, a concert or a concert venue through the search</h3>
+      <div class="d-flex justify-content-center align-items-center">
+        <select class="form-select form-select-lg" aria-label=".form-select-lg example" formControlName="filter" (change)="onChangeSelect($event)" >
+          <option value="artist">Artist</option>
+          <option value="music">Music</option>
+          <option value="album">Album</option>
+          <option value="concert">Concert</option>
+        </select>
+        
+        <div class="search">
+          <input type="text" class="search-input form-control" required placeholder="Search..." formControlName="search" onClick="this.select();"> 
+          <button type="submit" class="search-icon btn" (ngSubmit)="onSubmit()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </button> 
         </div>
-    </div>
+      </div>
+      <div class="input-group" *ngIf="displayDateConcert">
+        <span class="input-group-text">Min date / Max date</span>
+        <input type="date" formControlName="dateMin" class="form-control">
+        <input type="date" formControlName="dateMax" class="form-control">
+      </div>
+    </form>
+  </div>
 </div>
 
 <app-result-area></app-result-area>
