@@ -1,20 +1,17 @@
-body{
-background-color:blue;
-    
+body {
+    background-color:blue;   
 }
 
-.card{
-    
+.card {
     border: none;
     background: #eee;
 
 }
 .search {
     width: 100%;
-        margin-bottom: auto;
-    margin-top: 20px;
+    margin-bottom: auto;
     height: 50px;
-        background-color: #fff;
+    background-color: #fff;
     padding: 10px;
     border-radius: 5px;
 }
@@ -55,6 +52,7 @@ background-color:blue;
     bottom: 30px;
     position: relative;
     border-radius: 5px;
+    padding: 0%;
 }
 
 .search-icon:hover {
@@ -64,4 +62,13 @@ background-color:blue;
 
 a:link {
     text-decoration: none
+}
+
+.form-select {
+    width: 20%;
+    margin-right: 2%;
+}
+
+.input-group {
+    margin-top: 2%;
 }
