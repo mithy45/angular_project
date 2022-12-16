@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { ResultAreaComponent } from './components/result-area/result-area.component';
 import { NavBarDetailComponent } from './components/nav-bar-detail/nav-bar-detail.component';
 
@@ -21,7 +20,6 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     AppComponent,
     HomePageComponent,
-    ArtistSearchComponent,
     ResultAreaComponent,
     NavBarDetailComponent,
     DetailConcertComponent,
