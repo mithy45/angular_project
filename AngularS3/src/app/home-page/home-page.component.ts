@@ -7,13 +7,15 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  checkoutForm: FormGroup;
+  searchForm: FormGroup;
+  serializedForm: string;
 
   selectValue: string = "artist";
   displayDateConcert: boolean = false;
+
   
   constructor(private formBuilder: FormBuilder) {
-    this.checkoutForm = this.formBuilder.group({
+    this.searchForm = this.formBuilder.group({
       filter: this.selectValue,
       search: '',
       dateMin: null,
@@ -30,7 +32,7 @@ export class HomePageComponent implements OnInit {
       this.displayDateConcert = true;
     } else {
       this.displayDateConcert = false;
-      this.checkoutForm.patchValue({
+      this.searchForm.patchValue({
                                   dateMin: null,
                                   dateMax: null
                                 });
@@ -38,10 +40,13 @@ export class HomePageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("filter value : " + this.checkoutForm.get('filter')?.value);
-    console.log("search value : " + this.checkoutForm.get('search')?.value);
-    console.log("dateMin value : " + this.checkoutForm.get('dateMin')?.value);
-    console.log("dateMax value : " + this.checkoutForm.get('dateMax')?.value);
+    // console.log("filter value : " + this.searchForm.get('filter')?.value);
+    // console.log("search value : " + this.searchForm.get('search')?.value);
+    // console.log("dateMin value : " + this.searchForm.get('dateMin')?.value);
+    // console.log("dateMax value : " + this.searchForm.get('dateMax')?.value);
+    // console.log("checkoutForm : " + this.searchForm);
+    let formObj = this.searchForm.getRawValue();
+    this.serializedForm = JSON.stringify(formObj);
   }
 
 }
