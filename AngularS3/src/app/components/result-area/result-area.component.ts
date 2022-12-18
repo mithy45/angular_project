@@ -23,18 +23,30 @@ export class ResultAreaComponent implements OnInit, OnChanges {
     let jsonSearchForm = JSON.parse(this.searchForm);
     if (jsonSearchForm.filter == "artist") {
       this.lastFmApiService.getListArtistBySearch(jsonSearchForm.search).subscribe(data => {
-        let artists = data["results"]["artistmatches"]["artist"];
-        artists.forEach(artist => {
-          var card = {
-            title: artist["name"],
-            typeLabel: "listeners",
-            type: artist["listeners"],
-            url: artist["image"][1]["#text"]
-          };
-          this.cards.push(card);
-        });
+        this.createCards(data["results"]["artistmatches"]["artist"], "name", "Listeners", "listeners");
+      });
+    } else if (jsonSearchForm.filter == "music") {
+      this.lastFmApiService.getListTrackBySearch(jsonSearchForm.search).subscribe(data => {
+        this.createCards(data["results"]["trackmatches"]["track"], "name", "Artist", "artist", "Listeners ", "listeners");
+      });
+    } else if (jsonSearchForm.filter == "album") {
+      this.lastFmApiService.getListAlbumBySearch(jsonSearchForm.search).subscribe(data => {
+        this.createCards(data["results"]["albummatches"]["album"], "name", "Artist", "artist");
       });
     }
   }
 
+  createCards(datas : any[], titleKey : string, typeLabel : string, typeKey : string, description ?: string, descriptionKey ?: string) {
+    datas.forEach(data => {
+      var card = {
+        title: data[titleKey],
+        typeLabel: typeLabel,
+        type: data[typeKey],
+        url: data["image"][3]["#text"],
+        description: description,
+        descriptionKey : data[descriptionKey]
+      };
+      this.cards.push(card);
+    });
+  }
 }
