@@ -1,10 +1,17 @@
 
-a span {
+.rowMusic span {
     height: 100%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden; 
     -webkit-line-clamp: 1;
+    display: flex;
+    align-items: center;
+}
+
+.titles {
+    font-weight: bold;
+    align-items: center;
 }
 
 .nameMusic {
@@ -14,14 +21,15 @@ a span {
 .statMusic {
     width: 35%;
     text-align: right;
+    justify-content: end;
 }
 
-a span img {
+.rowMusic span img {
     height: 75%;
     margin-right: 0.5rem;
 }
 
-a {
+.rowMusic {
     height: 50px;
     display: flex;
     align-items: center;

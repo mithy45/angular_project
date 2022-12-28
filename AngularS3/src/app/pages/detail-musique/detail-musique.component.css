@@ -1,0 +1,20 @@
+main {
+    display: flex;
+    width: 100%;
+    min-height: 75vh ;
+}
+
+section {
+    width: calc(100% - 300px);
+    min-height: 70vh;
+    padding: 2.5vh 2.5vh 2.5vh 0;
+}
+
+.subtitle {
+    color: darkgrey;
+    font-size: 1em;
+}
+
+li {
+    overflow-wrap: anywhere;
+}

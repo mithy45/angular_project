@@ -4,15 +4,25 @@
 
 <p *ngIf="error"> {{ error }}</p>
 <ul *ngIf="!error" class="list-group list-group-light">
-    <a routerLink="/details/music" [queryParams]="{artist: nameArtist, name: music.name}"*ngFor="let music of musics" class="list-group-item list-group-item-action"> 
+    <div class="list-group-item rowMusic titles"> 
+        <span class="nameMusic">
+            Music name 
+        </span>
+        <span class="statMusic">
+            listeners
+            ·
+            playcounts
+        </span>
+    </div>
+    <a routerLink="/details/music" [queryParams]="{artist: nameArtist, name: music.name}" *ngFor="let music of musics" class="rowMusic list-group-item list-group-item-action"> 
         <span class="nameMusic">
             <img src="../../../assets/musical-notes-outline.svg"/> 
             {{music.name}}    
         </span>
         <span class="statMusic">
-            {{music.listeners}} listeners
+            {{music.listeners}}
             ·
-            {{music.playcount}} playcounts
+            {{music.playcount}}
         </span>
     </a>
 </ul>

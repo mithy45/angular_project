@@ -42,6 +42,7 @@ export class DetailMusiquesComponent implements OnInit {
       }
       this.musics = this.musics.slice(0, 20);
       console.log(this.musics);
+ 
     })
   }
 
