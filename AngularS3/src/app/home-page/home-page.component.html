@@ -1,4 +1,4 @@
-<app-header></app-header>
+
 <div class="row d-flex justify-content-center">
   <div class="col-md-9">
     <form [formGroup]="searchForm" class="card p-4 mt-3" (ngSubmit)="onSubmit()"> 
@@ -30,5 +30,3 @@
 </div>
 
 <app-result-area *ngIf="serializedForm != undefined" [searchForm]="serializedForm"></app-result-area>
-
-<app-footer></app-footer>

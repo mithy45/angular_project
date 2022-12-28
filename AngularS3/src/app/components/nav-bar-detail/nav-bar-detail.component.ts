@@ -10,9 +10,9 @@ export class NavBarDetailComponent implements OnInit {
 
   links = {
     "/details/artist" : "Artist",
-    "/details/concert" : "Concert",
-    "/details/album" : "Album",
-    "/details/musique" : "Music",
+    "/details/concerts" : "Concerts",
+    "/details/albums" : "Albums",
+    "/details/musiques" : "Musics",
   };
 
   currentRoute = "";
