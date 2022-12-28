@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-album',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailAlbumComponent implements OnInit {
 
-  constructor() { }
+  nameArtist: any;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    ) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.nameArtist = params['name'];
+      // Redirect if no name.
+      if (!this.nameArtist) {
+        //this.router.navigate(["/"]);
+      }
+      console.log(this.nameArtist);
+    });
   }
 
 }

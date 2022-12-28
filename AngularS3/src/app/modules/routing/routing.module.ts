@@ -13,10 +13,11 @@ const routes: Routes = [
   { path: 'details/albums', component: DetailAlbumsComponent },
   { path: 'details/artist', component: DetailArtistComponent },
   { path: 'details/concerts', component: DetailConcertsComponent },
-  { path: 'details/musiques', component: DetailMusiquesComponent },
+  { path: 'details/musics', component: DetailMusiquesComponent },
+  { path: 'details/music', component: DetailMusiqueComponent },
   { path: 'home', component: HomePageComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  { path: '**',   redirectTo: '/home', pathMatch: 'full' }
+  //{ path: '**',   redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

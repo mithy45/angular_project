@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar-detail',
@@ -8,19 +9,24 @@ import { Router } from '@angular/router';
 })
 export class NavBarDetailComponent implements OnInit {
 
-  links = {
-    "/details/artist" : "Artist",
-    "/details/concerts" : "Concerts",
-    "/details/albums" : "Albums",
-    "/details/musiques" : "Musics",
-  };
+  @Input() name: string;
+
+  links = {};
 
   currentRoute = "";
   
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.currentRoute = this.router.url
+    this.currentRoute = this.router.url;
+    this.currentRoute = this.currentRoute.split("?")[0];
+    this.links = {
+      "Artist" : ("/details/artist"),
+      "Concerts" : ("/details/concerts"),
+      "Albums" : ("/details/albums"),
+      "Musics" : ("/details/musics"),
+    };
+
   }
 
 }

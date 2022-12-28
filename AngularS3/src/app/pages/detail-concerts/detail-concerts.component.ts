@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail-concerts',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailConcertsComponent implements OnInit {
 
-  constructor() { }
+  nameArtist: any;
+  constructor(
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.nameArtist = params['name'];
+      // Redirect if no name.
+      if (!this.nameArtist) {
+        //this.router.navigate(["/"]);
+      }
+      console.log(this.nameArtist);
+    });
   }
 
 }

@@ -1,3 +1,18 @@
-<app-nav-bar-detail></app-nav-bar-detail>
+<app-nav-bar-detail [name]="nameArtist"></app-nav-bar-detail>
 
-<p>detail-musiques works!</p>
+<h4> Top 20 de ses musiques </h4>
+
+<p *ngIf="error"> {{ error }}</p>
+<ul *ngIf="!error" class="list-group list-group-light">
+    <a routerLink="/details/music" [queryParams]="{artist: nameArtist, name: music.name}"*ngFor="let music of musics" class="list-group-item list-group-item-action"> 
+        <span class="nameMusic">
+            <img src="../../../assets/musical-notes-outline.svg"/> 
+            {{music.name}}    
+        </span>
+        <span class="statMusic">
+            {{music.listeners}} listeners
+            ·
+            {{music.playcount}} playcounts
+        </span>
+    </a>
+</ul>
