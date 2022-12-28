@@ -1,7 +1,7 @@
-<h2 class="h2"> Title de la page </h2>
+<h2 class="h2"> Découvrir {{name}} </h2>
 <ul class="nav nav-tabs">
     <li class="nav-item" *ngFor="let link of links | keyvalue" >
-      <a *ngIf="currentRoute != link.key" class="nav-link" aria-current="page" [routerLink]="link.key"> {{link.value}}</a>
-      <a *ngIf="currentRoute == link.key" class="nav-link active" aria-current="page" [routerLink]="link.key"> {{link.value}}</a>
+      <a *ngIf="currentRoute != link.value" class="nav-link" aria-current="page" [routerLink]="[link.value]" [queryParams]="{name: name}"> {{link.key}}</a>
+      <a *ngIf="currentRoute == link.value" class="nav-link active" aria-current="page"> {{link.key}}</a>
     </li>
 </ul>

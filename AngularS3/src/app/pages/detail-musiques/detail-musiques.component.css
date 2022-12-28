@@ -1,0 +1,29 @@
+
+a span {
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+    -webkit-line-clamp: 1;
+}
+
+.nameMusic {
+    width: 65%;
+}
+
+.statMusic {
+    width: 35%;
+    text-align: right;
+}
+
+a span img {
+    height: 75%;
+    margin-right: 0.5rem;
+}
+
+a {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
