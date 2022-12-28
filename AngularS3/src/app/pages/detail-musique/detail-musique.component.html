@@ -1,2 +1,13 @@
 
-<p>detail-musique works!</p>
+<main>
+    <section>
+        <h4> {{music}} </h4>
+        <h5 class="subtitle"> By {{nameArtist}} </h5>
+        <ul class="list-group list-group-light">
+            <li *ngFor="let info of infos | keyvalue" class="rowMusic list-group-item list-group-item-action">
+                <b>{{info.value[0]}}</b> : {{info.value[1]}}
+            </li>
+        </ul>
+    </section>
+    <app-nav-bar-aside nameArtist="{{nameArtist}}"></app-nav-bar-aside>
+</main>

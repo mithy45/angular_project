@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DetailAlbumsComponent } from './pages/detail-albums/detail-albums.component';
 import { DetailMusiquesComponent } from './pages/detail-musiques/detail-musiques.component';
+import { NavBarAsideComponent } from './components/nav-bar-aside/nav-bar-aside.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DetailMusiquesComponent } from './pages/detail-musiques/detail-musiques
     FooterComponent,
     DetailAlbumsComponent,
     DetailMusiquesComponent,
+    NavBarAsideComponent,
   ],
   imports: [
     BrowserModule,
