@@ -38,10 +38,10 @@ export class DetailMusiqueComponent implements OnInit {
         this.infos = [
           ["Album" , data.track.album?.title],
           ["Duration" , minutes +":" +secondes],
-          ["Published", data.track.wiki.published],
+          ["Published", data.track.wiki == undefined ? "" : data.track.wiki.published],
           ["Listeners" , data.track.listeners],
           ["Playcount" , data.track.playcount],
-          ["Description" , data.track.wiki.content],
+          ["Description" , data.track.wiki == undefined ? "" : data.track.wiki.published],
         ];
 
         console.log(data.track, this.infos);
