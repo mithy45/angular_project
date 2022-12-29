@@ -1,6 +1,40 @@
-<app-header></app-header>
-<app-nav-bar-detail></app-nav-bar-detail>
-
-<p>detail-album works!</p>
-
-<app-footer></app-footer>
+<main>
+    <section>
+        <div class="marge">
+            <div class="header">
+                <h4> {{album}} </h4>
+                <h5 class="subtitle"> By {{nameArtist}} </h5>
+            </div>
+            <div class="header">
+                <img src="{{imageUrl}}" />
+            </div>
+        </div>
+        <div class="marge">
+            <ul *ngIf="!error" class="list-group list-group-light">
+                <div class="list-group-item rowMusic titles"> 
+                    <span class="nameMusic">
+                        Music name 
+                    </span>
+                </div>
+                <a routerLink="/details/music" [queryParams]="{artist: nameArtist, name: music.name}" *ngFor="let music of musics" class="rowMusic list-group-item list-group-item-action"> 
+                    <span class="nameMusic">
+                        <img src="../../../assets/musical-notes-outline.svg"/> 
+                        {{music.name}}    
+                    </span>
+                </a>
+            </ul>
+        </div>
+        <div class="marge">
+            <ul class="list-group list-group-light">
+                <li *ngFor="let info of infos | keyvalue" class="rowMusic list-group-item list-group-item-action">
+                    <b>{{info.value[0]}}</b> : {{info.value[1]}}
+                </li>
+            </ul>
+        </div>
+        <div class="marge">
+            <h4>Description</h4>
+            <p>{{description}}</p>
+        </div>
+    </section>
+    <app-nav-bar-aside nameArtist="{{nameArtist}}"></app-nav-bar-aside>
+</main>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LastFmApiService } from 'src/app/services/last-fm-api.service';
 
 @Component({
   selector: 'app-detail-album',
@@ -8,20 +9,38 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailAlbumComponent implements OnInit {
 
-  nameArtist: any;
+  error = "";
+  data : any;
+  nameArtist : any;
+  imageUrl : string = "";
+  infos = {};
+  album: any;
+  links = {};
+  musics: any;
+  description: string;
+
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    ) { }
+    private service : LastFmApiService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.nameArtist = params['name'];
-      // Redirect if no name.
-      if (!this.nameArtist) {
-        //this.router.navigate(["/"]);
-      }
-      console.log(this.nameArtist);
+      this.nameArtist = params['artist'];
+      this.album = params['name'];
+     
+      console.log(this.nameArtist, this.album);
+      this.service.getAlbumInfo(this.album, this.nameArtist).subscribe(data => {
+        this.imageUrl = data.album.image[5]["#text"]
+        this.infos = [
+          ["Published", data.album.wiki.published],
+          ["Listeners" , data.album.listeners],
+          ["Playcount" , data.album.playcount]
+        ];
+        this.description = data.album.wiki.content;
+        this.musics = data.album.tracks.track;
+      });
+      
     });
   }
 
