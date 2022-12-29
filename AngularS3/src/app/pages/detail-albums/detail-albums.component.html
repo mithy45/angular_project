@@ -1,4 +1,24 @@
 <app-nav-bar-detail [name]="nameArtist"></app-nav-bar-detail>
 
-
-<p>detail-albums works!</p>
+<p *ngIf="error"> {{ error }}</p>
+<ul *ngIf="!error" class="list-group list-group-light">
+    <div class="list-group-item rowAlbum titles"> 
+        <span class="nameAlbum">
+            Album name 
+        </span>
+        <span class="statAlbum">
+            playcounts
+        </span>
+    </div>
+    <a routerLink="/details/album" [queryParams]="{artist: nameArtist, name: album.name}" *ngFor="let album of albums" class="rowAlbum list-group-item list-group-item-action"> 
+        <span class="nameAlbum">
+            <img src="../../../assets/albums-outline.svg"/> 
+            {{album.name}}    
+        </span>
+        <span class="statAlbum">
+            <img src="{{album.imageUrl}}" />
+            ·
+            {{album.playcount}}
+        </span>
+    </a>
+</ul>

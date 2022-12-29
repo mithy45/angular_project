@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { LastFmApiService } from 'src/app/services/last-fm-api.service';
 
 @Component({
   selector: 'app-detail-albums',
@@ -8,22 +9,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailAlbumsComponent implements OnInit {
 
-  nameArtist: any;
+  error = "";
+  data : any;
+  nameArtist : any;
+  albums: any;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    ) { }
+    private service : LastFmApiService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.nameArtist = params['name'];
-      // Redirect if no name.
-      if (!this.nameArtist) {
-        //this.router.navigate(["/"]);
-      }
-      console.log(params);
     });
+
+    this.service.getAllAlbumsByArtist(this.nameArtist).subscribe(data => {
+      if (!data) {
+        this.error = "Aucun artist correspondant.";
+        return;
+      }
+      this.albums = data.topalbums.album;
+      this.albums.forEach(album => {
+        album["imageUrl"] = album.image[0]["#text"];
+      });
+      if (!this.albums) {
+        this.error = "Aucun album trouvée.";
+        return;
+      }
+    })
   }
 
 }

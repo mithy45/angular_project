@@ -1,0 +1,37 @@
+
+.rowAlbum span {
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+    -webkit-line-clamp: 1;
+    display: flex;
+    align-items: center;
+}
+
+.titles {
+    font-weight: bold;
+    align-items: center;
+}
+
+.nameAlbum {
+    width: 65%;
+}
+
+.statAlbum {
+    width: 35%;
+    text-align: right;
+    justify-content: end;
+}
+
+.rowAlbum span img {
+    height: 75%;
+    margin-right: 0.5rem;
+}
+
+.rowAlbum {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
