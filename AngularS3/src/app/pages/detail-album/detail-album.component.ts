@@ -33,11 +33,15 @@ export class DetailAlbumComponent implements OnInit {
       this.service.getAlbumInfo(this.album, this.nameArtist).subscribe(data => {
         this.imageUrl = data.album.image[5]["#text"]
         this.infos = [
-          ["Published", data.album.wiki.published],
+          ["Published", data.album.wiki == undefined ? "" : data.album.wiki.published],
           ["Listeners" , data.album.listeners],
           ["Playcount" , data.album.playcount]
         ];
-        this.description = data.album.wiki.content;
+        if (data.album.wiki) {
+          this.description = data.album.wiki.content;
+        } else {
+          this.description = "no description available";
+        }
         this.musics = data.album.tracks.track;
       });
       
