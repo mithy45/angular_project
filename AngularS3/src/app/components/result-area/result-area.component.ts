@@ -59,11 +59,10 @@ export class ResultAreaComponent implements OnInit, OnChanges {
     let optionUrl = "";
     console.log(filter);
     if (filter == "artist") {
-      optionUrl = "artist=" + data["name"];
+      optionUrl = "name=" + data["name"];
     } else if (filter == "music" || filter == "album") {
       optionUrl = "artist=" + data["artist"] + "&name=" + data["name"];
     }
-    console.log(data);
     return optionUrl;
   }
 }

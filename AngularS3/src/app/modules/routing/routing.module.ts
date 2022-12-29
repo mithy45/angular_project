@@ -11,6 +11,7 @@ import { DetailMusiquesComponent } from 'src/app/pages/detail-musiques/detail-mu
 
 const routes: Routes = [
   { path: 'details/albums', component: DetailAlbumsComponent },
+  { path: 'details/album', component: DetailAlbumComponent },
   { path: 'details/artist', component: DetailArtistComponent },
   { path: 'details/concerts', component: DetailConcertsComponent },
   { path: 'details/musics', component: DetailMusiquesComponent },
