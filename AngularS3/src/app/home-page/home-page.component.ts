@@ -11,15 +11,14 @@ export class HomePageComponent implements OnInit {
   serializedForm: string;
 
   selectValue: string = "artist";
-  displayDateConcert: boolean = false;
+  displayArtistFilter: boolean = false;
 
   
   constructor(private formBuilder: FormBuilder) {
     this.searchForm = this.formBuilder.group({
       filter: this.selectValue,
       search: '',
-      dateMin: null,
-      dateMax: null
+      artistNameFilter: null
     });
   }
 
@@ -28,13 +27,12 @@ export class HomePageComponent implements OnInit {
 
   onChangeSelect(opt: any) {
     this.selectValue = opt.target.value;
-    if(opt.target.value === 'concert'){
-      this.displayDateConcert = true;
+    if(opt.target.value === 'music'){
+      this.displayArtistFilter = true;
     } else {
-      this.displayDateConcert = false;
+      this.displayArtistFilter = false;
       this.searchForm.patchValue({
-                                  dateMin: null,
-                                  dateMax: null
+                                  artistNameFilter: null
                                 });
     }
   }
@@ -44,7 +42,7 @@ export class HomePageComponent implements OnInit {
     // console.log("search value : " + this.searchForm.get('search')?.value);
     // console.log("dateMin value : " + this.searchForm.get('dateMin')?.value);
     // console.log("dateMax value : " + this.searchForm.get('dateMax')?.value);
-    // console.log("checkoutForm : " + this.searchForm);
+    console.log("checkoutForm : " + this.searchForm);
     let formObj = this.searchForm.getRawValue();
     this.serializedForm = JSON.stringify(formObj);
   }
