@@ -9,7 +9,7 @@ export class NavBarAsideComponent implements OnInit {
 
   @Input() nameArtist: string;
   error = "";
-  links = {};
+  links = [];
   
   constructor() { }
 
@@ -17,12 +17,11 @@ export class NavBarAsideComponent implements OnInit {
     if (!this.nameArtist) {
       this.error = "nameArtist n'est pas transmi en paramètre";
     }
-    this.links = {
-      " the artist" : ["/details/artist", "../../../assets/person-circle-outline.svg"],
-      " the concerts" : ["/details/concerts", "../../../assets/navigate-outline.svg"],
-      " the album" : ["/details/albums",  "../../../assets/albums-outline.svg"],
-      " the others Musics" : ["/details/musics",  "../../../assets/musical-notes-outline.svg"],
-    };
+    this.links = [
+      [" The artist", ["/details/artist", "../../../assets/person-circle-outline.svg"]],
+      [" His albums" ,["/details/albums",  "../../../assets/albums-outline.svg"]],
+      [" His others Musics" , ["/details/musics",  "../../../assets/musical-notes-outline.svg"]],
+    ];
   }
 
 }

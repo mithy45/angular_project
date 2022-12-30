@@ -18,3 +18,12 @@ section {
 li {
     overflow-wrap: anywhere;
 }
+
+a img {
+    width: 1.5em;
+    margin-right: 1%;
+}
+
+a {
+    display: flex;
+}

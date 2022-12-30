@@ -1,3 +1,5 @@
+<app-nav-bar-detail [name]="nameArtist"></app-nav-bar-detail>
+
 <main>
     <section>
         <div class="marge">
@@ -10,7 +12,7 @@
         </div>
         <div class="marge">
             <ul class="list-group list-group-light">
-                <li *ngFor="let info of infos | keyvalue" class="rowArtist list-group-item list-group-item-action">
+                <li *ngFor="let info of infos | keyvalue" class="rowArtist list-group-item">
                     <b>{{info.value[0]}}</b> : {{info.value[1]}}
                 </li>
             </ul>
@@ -35,5 +37,4 @@
             </div>
         </div>
     </section>
-    <app-nav-bar-aside nameArtist="{{nameArtist}}"></app-nav-bar-aside>
 </main>
