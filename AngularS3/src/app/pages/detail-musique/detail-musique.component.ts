@@ -15,6 +15,7 @@ export class DetailMusiqueComponent implements OnInit {
   infos = {};
   music: any;
   links = {};
+  album = "";
 
   constructor(
     private service : LastFmApiService,
@@ -35,8 +36,8 @@ export class DetailMusiqueComponent implements OnInit {
       this.service.getTrackInfo(this.music, this.nameArtist).subscribe(data => {
         let minutes = parseInt("" + ((data.track.duration / 1000) / 60));
         let secondes = (data.track.duration / 1000) % 60;
+        this.album = data.track.album?.title,
         this.infos = [
-          ["Album" , data.track.album?.title],
           ["Duration" , minutes +":" +secondes],
           ["Published", data.track.wiki == undefined ? "" : data.track.wiki.published],
           ["Listeners" , data.track.listeners],

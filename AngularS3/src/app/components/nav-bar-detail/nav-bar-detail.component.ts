@@ -10,8 +10,9 @@ import { Input } from '@angular/core';
 export class NavBarDetailComponent implements OnInit {
 
   @Input() name: string;
+  @Input() page: string;
 
-  links = {};
+  links = [];
 
   currentRoute = "";
   
@@ -20,13 +21,12 @@ export class NavBarDetailComponent implements OnInit {
   ngOnInit(): void {
     this.currentRoute = this.router.url;
     this.currentRoute = this.currentRoute.split("?")[0];
-    this.links = {
-      "Artist" : ("/details/artist"),
-      "Concerts" : ("/details/concerts"),
-      "Albums" : ("/details/albums"),
-      "Musics" : ("/details/musics"),
-    };
-
+    this.links = [
+      ["Artist" , ("/details/artist")],
+      ["Albums" , ("/details/albums")],
+      ["Musics" , ("/details/musics")],
+    ];
+    
   }
 
 }

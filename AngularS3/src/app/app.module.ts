@@ -9,7 +9,6 @@ import { ResultAreaComponent } from './components/result-area/result-area.compon
 import { NavBarDetailComponent } from './components/nav-bar-detail/nav-bar-detail.component';
 
 import { RoutingModule } from './modules/routing/routing.module';
-import { DetailConcertsComponent } from './pages/detail-concerts/detail-concerts.component';
 import { DetailArtistComponent } from './pages/detail-artist/detail-artist.component';
 import { DetailAlbumComponent } from './pages/detail-album/detail-album.component';
 import { DetailMusiqueComponent } from './pages/detail-musique/detail-musique.component';
@@ -25,7 +24,6 @@ import { NavBarAsideComponent } from './components/nav-bar-aside/nav-bar-aside.c
     HomePageComponent,
     ResultAreaComponent,
     NavBarDetailComponent,
-    DetailConcertsComponent,
     DetailArtistComponent,
     DetailAlbumComponent,
     DetailMusiqueComponent,

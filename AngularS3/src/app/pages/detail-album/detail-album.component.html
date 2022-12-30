@@ -26,8 +26,8 @@
         </div>
         <div class="marge">
             <ul class="list-group list-group-light">
-                <li *ngFor="let info of infos | keyvalue" class="rowMusic list-group-item list-group-item-action">
-                    <b>{{info.value[0]}}</b> : {{info.value[1]}}
+                <li *ngFor="let info of infos | keyvalue" class="rowMusic list-group-item">
+                    <b>{{info.value[0]}} :</b>  {{info.value[1]}}
                 </li>
             </ul>
         </div>
