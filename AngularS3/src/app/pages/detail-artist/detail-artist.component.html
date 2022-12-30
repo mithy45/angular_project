@@ -24,7 +24,11 @@
 
         <div class="marge">
             <div class="list-group list-group-light">
-
+                <div class="list-group-item rowArtist titles"> 
+                    <span class="nameArtist">
+                        Similar artists
+                    </span>
+                </div>
                 <a routerLink="/details/artist" [queryParams]="{name: similar.name}" *ngFor="let similar of similars" class="rowArtist list-group-item list-group-item-action"> 
                     <span class="nameArtist">
                         <img src="../../../assets/person-circle-outline.svg"/> 
