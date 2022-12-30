@@ -1,4 +1,39 @@
-<app-nav-bar-detail [name]="nameArtist"></app-nav-bar-detail>
+<main>
+    <section>
+        <div class="marge">
+            <div class="header">
+                <h4> {{nameArtist}} </h4>
+            </div>
+            <div class="header">
+                <img src="{{imageUrl}}" />
+            </div>
+        </div>
+        <div class="marge">
+            <ul class="list-group list-group-light">
+                <li *ngFor="let info of infos | keyvalue" class="rowArtist list-group-item list-group-item-action">
+                    <b>{{info.value[0]}}</b> : {{info.value[1]}}
+                </li>
+            </ul>
+        </div>
+        <div class="marge">
+            <h4>Description</h4>
+            <p>{{description}}</p>
+        </div>
 
+        <div class="marge">
+            <div class="list-group list-group-light">
 
-<p>detail-artist works!</p>
+                <a routerLink="/details/artist" [queryParams]="{name: similar.name}" *ngFor="let similar of similars" class="rowArtist list-group-item list-group-item-action"> 
+                    <span class="nameArtist">
+                        <img src="../../../assets/person-circle-outline.svg"/> 
+                        {{similar.name}}    
+                    </span>
+                    <span class="statArtist">
+                        <img src="{{similar.imageUrl}}" />
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <app-nav-bar-aside nameArtist="{{nameArtist}}"></app-nav-bar-aside>
+</main>
