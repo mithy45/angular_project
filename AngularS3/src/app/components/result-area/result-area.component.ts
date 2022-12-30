@@ -28,7 +28,7 @@ export class ResultAreaComponent implements OnInit, OnChanges {
         this.createCards(data["results"]["artistmatches"]["artist"], "name", "Listeners", "listeners", jsonSearchForm.filter);
       });
     } else if (jsonSearchForm.filter == "music") {
-      this.lastFmApiService.getListTrackBySearch(jsonSearchForm.search).subscribe(data => {
+      this.lastFmApiService.getListTrackBySearch(jsonSearchForm.search, jsonSearchForm.artistNameFilter).subscribe(data => {
         this.createCards(data["results"]["trackmatches"]["track"], "name", "Artist", "artist", jsonSearchForm.filter, "Listeners ", "listeners");
       });
     } else if (jsonSearchForm.filter == "album") {
@@ -57,7 +57,6 @@ export class ResultAreaComponent implements OnInit, OnChanges {
 
   createOptionUrl(data : any, filter : string) {
     let optionUrl = "";
-    console.log(filter);
     if (filter == "artist") {
       optionUrl = "name=" + data["name"];
     } else if (filter == "music" || filter == "album") {

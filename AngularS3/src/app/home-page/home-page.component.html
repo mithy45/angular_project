@@ -19,10 +19,9 @@
           </button> 
         </div>
       </div>
-      <div class="input-group" *ngIf="displayDateConcert">
-        <span class="input-group-text">Min date / Max date</span>
-        <input type="date" formControlName="dateMin" class="form-control">
-        <input type="date" formControlName="dateMax" class="form-control">
+      <div class="input-group" *ngIf="displayArtistFilter">
+        <span class="input-group-text">Artist name</span>
+        <input type="text" formControlName="artistNameFilter" class="form-control">
       </div>
     </form>
   </div>
